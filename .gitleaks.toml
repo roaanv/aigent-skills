@@ -1,0 +1,34 @@
+# Gitleaks configuration
+# https://github.com/gitleaks/gitleaks
+#
+# This file configures secret detection rules and allowlists.
+# The default ruleset catches API keys, tokens, passwords, private keys,
+# AWS credentials, and other common secret patterns.
+
+title = "gitleaks config"
+
+# Extend the default built-in rules (catch-all).
+# Without this, providing a config file disables all default rules.
+[extend]
+  useDefault = true
+
+# Allowlist for false positives.
+# Add entries here when gitleaks flags something that is not a real secret.
+#
+# To find the fingerprint of a false positive, run:
+#   gitleaks detect --verbose
+# and copy the "Fingerprint" value from the finding.
+[allowlist]
+  description = "Global allowlist for false positives"
+
+  # Allowlist by file path (regex patterns)
+  paths = [
+    '''\.gitleaks\.toml$''',
+    '''\.pre-commit-config\.yaml$''',
+  ]
+
+  # Allowlist specific findings by fingerprint.
+  # Example:
+  #   [[allowlist.commits]]
+  #   fingerprint = "abc123..."
+  #   reason = "Test fixture placeholder, not a real secret"
