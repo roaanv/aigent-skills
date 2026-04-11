@@ -19,16 +19,22 @@ Designed for experienced developers who want to understand *how a system is desi
 
 ### From GitHub
 
-In Claude Code, first add the repository as a marketplace source, then install:
+In Claude Code, add the repository as a marketplace source, then install the plugin:
 
 ```
 /plugin marketplace add roaanv/aigent-skills
 /plugin install aigent-skills@roaanv-aigent-skills
 ```
 
+After installation, reload plugins in your current session:
+
+```
+/reload-plugins
+```
+
 ### For local development
 
-To load the plugin for the current session only:
+To load the plugin for the current session only (not persisted):
 
 ```bash
 claude --plugin-dir /path/to/aigent-skills
@@ -65,6 +71,7 @@ make setup
 ```
 .claude-plugin/
   plugin.json          # Plugin manifest (name, version, author)
+  marketplace.json     # Marketplace catalog (enables install from GitHub)
 skills/
   codebase-overview/
     SKILL.md            # Skill definition and instructions
