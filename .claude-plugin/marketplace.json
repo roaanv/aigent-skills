@@ -1,10 +1,14 @@
 {
+  "name": "aigent-skills-marketplace",
+  "owner": {
+    "name": "roaanv"
+  },
   "plugins": [
     {
       "name": "aigent-skills",
       "version": "0.1.0",
       "description": "Personal collection of Claude Code skills for architectural analysis and learning",
-      "source": "."
+      "source": "./"
     }
   ]
 }
