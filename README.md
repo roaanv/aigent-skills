@@ -17,10 +17,21 @@ Designed for experienced developers who want to understand *how a system is desi
 
 ## Installation
 
-Install the plugin directly from GitHub in Claude Code:
+### From GitHub
+
+In Claude Code, first add the repository as a marketplace source, then install:
 
 ```
-/install-plugin https://github.com/roaanv/aigent-skills
+/plugin marketplace add roaanv/aigent-skills
+/plugin install aigent-skills@roaanv-aigent-skills
+```
+
+### For local development
+
+To load the plugin for the current session only:
+
+```bash
+claude --plugin-dir /path/to/aigent-skills
 ```
 
 ## Development
