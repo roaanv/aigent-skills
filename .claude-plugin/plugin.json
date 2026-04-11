@@ -1,7 +1,7 @@
 {
   "name": "aigent-skills",
-  "version": "0.1.0",
-  "description": "Personal collection of Claude Code skills for architectural analysis and learning",
+  "version": "0.2.0",
+  "description": "Personal collection of Claude Code skills for architectural analysis, learning, and iOS/macOS deployment",
   "author": {
     "name": "roaanv"
   }
