@@ -4,12 +4,17 @@ A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) plugin with skil
 
 ## Skills
 
-| Skill | Purpose |
-|-------|---------|
-| [Codebase Overview](#codebase-overview) | Two-phase architectural analysis with mermaid diagrams |
-| [Noob Doc](#noob-doc) | Generate onboarding documentation for junior engineers |
-| [Fastlane Setup](#fastlane-setup) | One-time fastlane initialization for iOS/macOS projects |
-| [Fastlane Deploy](#fastlane-deploy) | Build and upload to TestFlight or the App Store |
+| Skill | Invoke with | Purpose |
+|-------|-------------|---------|
+| [Codebase Overview](#codebase-overview) | `/aigent-skills:codebase-overview` | Two-phase architectural analysis with mermaid diagrams |
+| [Noob Doc](#noob-doc) | `/aigent-skills:noob-doc` | Generate onboarding documentation for junior engineers |
+| [Fastlane Setup](#fastlane-setup) | `/aigent-skills:fastlane-setup` | One-time fastlane initialization for iOS/macOS projects |
+| [Fastlane Deploy](#fastlane-deploy) | `/aigent-skills:fastlane-deploy` | Build and upload to TestFlight or the App Store |
+
+Each skill can be invoked two ways:
+
+1. **Explicitly** by its qualified name (shown in the table above) — deterministic; bypasses trigger-phrase matching.
+2. **Implicitly** by using one of the natural-language trigger phrases listed under each skill — Claude Code matches the request against the skill's description and invokes it automatically.
 
 ### Codebase Overview
 
@@ -20,24 +25,28 @@ Produces a two-phase architectural analysis of any codebase:
 
 Designed for experienced developers who want to understand *how a system is designed* — not a line-by-line code walkthrough.
 
+**Invoke:** `/aigent-skills:codebase-overview`
 **Trigger phrases:** "review this codebase", "analyze the architecture", "what patterns does this project use", "how is this project structured"
 
 ### Noob Doc
 
 Generates a comprehensive `noob.md` architecture document aimed at a junior engineer who has never seen the codebase. Runs a short scoping interview, then produces self-contained onboarding documentation covering structure, key flows, and conventions — enough for a new contributor to add significant features without further hand-holding.
 
+**Invoke:** `/aigent-skills:noob-doc`
 **Trigger phrases:** "document this codebase", "write onboarding docs", "create a getting started guide", "explain the architecture for a junior", "generate noob docs"
 
 ### Fastlane Setup
 
 One-time initialization of [fastlane](https://fastlane.tools) for an iOS or macOS project. Detects the Xcode project or workspace, installs fastlane, generates a `Fastfile` with `beta` (TestFlight) and `release` (App Store) lanes, and configures code signing via [match](https://docs.fastlane.tools/actions/match/). Leaves the project with a working deployment pipeline.
 
+**Invoke:** `/aigent-skills:fastlane-setup`
 **Trigger phrases:** "set up fastlane", "configure fastlane", "initialize fastlane for deployment", "set up code signing", "configure TestFlight", "prepare for App Store deployment"
 
 ### Fastlane Deploy
 
 Runs the full build-and-upload pipeline for an iOS or macOS app: preflight checks, auto-increments the build number, syncs code signing, builds, and uploads to TestFlight (beta) or the App Store (release). Requires that Fastlane Setup has already been run on the project.
 
+**Invoke:** `/aigent-skills:fastlane-deploy`
 **Trigger phrases:** "deploy to TestFlight", "upload to TestFlight", "submit to App Store", "release the app", "push a beta build", "ship a build", "deploy with fastlane"
 
 ## Installation
