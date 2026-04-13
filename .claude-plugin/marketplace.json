@@ -6,8 +6,8 @@
   "plugins": [
     {
       "name": "aigent-skills",
-      "version": "0.2.0",
-      "description": "Personal collection of Claude Code skills for architectural analysis, learning, and iOS/macOS deployment",
+      "version": "0.3.0",
+      "description": "Personal collection of Claude Code skills for architectural analysis, onboarding documentation, and iOS/macOS deployment",
       "source": "./"
     }
   ]

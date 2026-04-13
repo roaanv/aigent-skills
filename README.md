@@ -15,6 +15,12 @@ Designed for experienced developers who want to understand *how a system is desi
 
 **Trigger phrases:** "review this codebase", "analyze the architecture", "what patterns does this project use", "how is this project structured"
 
+### Noob Doc
+
+Generates a comprehensive `noob.md` architecture document aimed at a junior engineer who has never seen the codebase. Runs a short scoping interview, then produces self-contained onboarding documentation covering structure, key flows, and conventions — enough for a new contributor to add significant features without further hand-holding.
+
+**Trigger phrases:** "document this codebase", "write onboarding docs", "create a getting started guide", "explain the architecture for a junior", "generate noob docs"
+
 ## Installation
 
 ### From GitHub
@@ -76,6 +82,8 @@ skills/
   codebase-overview/
     SKILL.md            # Skill definition and instructions
     references/         # Supporting templates and procedures
+  noob-doc/
+    SKILL.md            # Junior-engineer onboarding doc generator
 docs/                   # Specs and plans
 Makefile                # Build and setup automation
 .pre-commit-config.yaml # Pre-commit hook configuration
