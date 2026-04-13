@@ -1,8 +1,15 @@
 # aigent-skills
 
-A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) plugin with skills for architectural analysis and codebase understanding.
+A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) plugin with skills for architectural analysis, onboarding documentation, and iOS/macOS deployment automation.
 
 ## Skills
+
+| Skill | Purpose |
+|-------|---------|
+| [Codebase Overview](#codebase-overview) | Two-phase architectural analysis with mermaid diagrams |
+| [Noob Doc](#noob-doc) | Generate onboarding documentation for junior engineers |
+| [Fastlane Setup](#fastlane-setup) | One-time fastlane initialization for iOS/macOS projects |
+| [Fastlane Deploy](#fastlane-deploy) | Build and upload to TestFlight or the App Store |
 
 ### Codebase Overview
 
@@ -20,6 +27,18 @@ Designed for experienced developers who want to understand *how a system is desi
 Generates a comprehensive `noob.md` architecture document aimed at a junior engineer who has never seen the codebase. Runs a short scoping interview, then produces self-contained onboarding documentation covering structure, key flows, and conventions — enough for a new contributor to add significant features without further hand-holding.
 
 **Trigger phrases:** "document this codebase", "write onboarding docs", "create a getting started guide", "explain the architecture for a junior", "generate noob docs"
+
+### Fastlane Setup
+
+One-time initialization of [fastlane](https://fastlane.tools) for an iOS or macOS project. Detects the Xcode project or workspace, installs fastlane, generates a `Fastfile` with `beta` (TestFlight) and `release` (App Store) lanes, and configures code signing via [match](https://docs.fastlane.tools/actions/match/). Leaves the project with a working deployment pipeline.
+
+**Trigger phrases:** "set up fastlane", "configure fastlane", "initialize fastlane for deployment", "set up code signing", "configure TestFlight", "prepare for App Store deployment"
+
+### Fastlane Deploy
+
+Runs the full build-and-upload pipeline for an iOS or macOS app: preflight checks, auto-increments the build number, syncs code signing, builds, and uploads to TestFlight (beta) or the App Store (release). Requires that Fastlane Setup has already been run on the project.
+
+**Trigger phrases:** "deploy to TestFlight", "upload to TestFlight", "submit to App Store", "release the app", "push a beta build", "ship a build", "deploy with fastlane"
 
 ## Installation
 
@@ -84,6 +103,12 @@ skills/
     references/         # Supporting templates and procedures
   noob-doc/
     SKILL.md            # Junior-engineer onboarding doc generator
+  fastlane-setup/
+    SKILL.md            # One-time fastlane project initialization
+    references/         # Prerequisites, project detection, Fastfile templates, match setup
+  fastlane-deploy/
+    SKILL.md            # TestFlight / App Store deployment pipeline
+    references/         # Preflight checks, deploy steps, error diagnosis
 docs/                   # Specs and plans
 Makefile                # Build and setup automation
 .pre-commit-config.yaml # Pre-commit hook configuration
