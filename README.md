@@ -10,6 +10,7 @@ A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) plugin with skil
 | [Noob Doc](#noob-doc) | `/aigent-skills:noob-doc` | Generate onboarding documentation for junior engineers |
 | [Fastlane Setup](#fastlane-setup) | `/aigent-skills:fastlane-setup` | One-time fastlane initialization for iOS/macOS projects |
 | [Fastlane Deploy](#fastlane-deploy) | `/aigent-skills:fastlane-deploy` | Build and upload to TestFlight or the App Store |
+| [Repo to HTML](#repo-to-html) | `/aigent-skills:repo-to-html` | Create polished HTML technical deep-dive documentation for any software project |
 
 Each skill can be invoked two ways:
 
@@ -48,6 +49,13 @@ Runs the full build-and-upload pipeline for an iOS or macOS app: preflight check
 
 **Invoke:** `/aigent-skills:fastlane-deploy`
 **Trigger phrases:** "deploy to TestFlight", "upload to TestFlight", "submit to App Store", "release the app", "push a beta build", "ship a build", "deploy with fastlane"
+
+### Repo to HTML
+
+Creates or extends polished multi-page HTML technical documentation for any software codebase. Explores the repo structure, builds an architecture model, then generates a self-contained doc site with navigation, diagrams, and a change guide — presentation-friendly by default. Supports iterative updates: follow-up questions extend the existing documentation set in place rather than creating a disconnected second deliverable.
+
+**Invoke:** `/aigent-skills:repo-to-html`
+**Trigger phrases:** "explain this codebase in depth", "document the architecture", "create deep-dive documentation", "generate an HTML doc site for this repo", "add a section to the existing docs", "create presentation-friendly documentation"
 
 ## Installation
 
@@ -118,6 +126,9 @@ skills/
   fastlane-deploy/
     SKILL.md            # TestFlight / App Store deployment pipeline
     references/         # Preflight checks, deploy steps, error diagnosis
+  repo-to-html/
+    SKILL.md            # HTML deep-dive documentation generator
+    references/         # Presentation and readability guidelines
 docs/                   # Specs and plans
 Makefile                # Build and setup automation
 .pre-commit-config.yaml # Pre-commit hook configuration
