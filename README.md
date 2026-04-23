@@ -11,6 +11,7 @@ A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) plugin with skil
 | [Fastlane Setup](#fastlane-setup) | `/aigent-skills:fastlane-setup` | One-time fastlane initialization for iOS/macOS projects |
 | [Fastlane Deploy](#fastlane-deploy) | `/aigent-skills:fastlane-deploy` | Build and upload to TestFlight or the App Store |
 | [Repo to HTML](#repo-to-html) | `/aigent-skills:repo-to-html` | Create polished HTML technical deep-dive documentation for any software project |
+| [Docit](#docit) | `/aigent-skills:docit` | Combined HTML architecture documentation — adapts to experienced devs or juniors, with optional feature guides, glossary, and dev commands |
 
 Each skill can be invoked two ways:
 
@@ -56,6 +57,13 @@ Creates or extends polished multi-page HTML technical documentation for any soft
 
 **Invoke:** `/aigent-skills:repo-to-html`
 **Trigger phrases:** "explain this codebase in depth", "document the architecture", "create deep-dive documentation", "generate an HTML doc site for this repo", "add a section to the existing docs", "create presentation-friendly documentation"
+
+### Docit
+
+Combines the strengths of Codebase Overview, Noob Doc, and Repo to HTML into a single skill. Generates a polished multi-page HTML doc site for any codebase, adapting depth and framing based on the intended audience (experienced engineers or juniors). Covers architecture, components, extensibility, key flows, patterns, and practical change guidance. Optional sections include a feature implementation guide (which files to touch for a new feature, no code), a dev commands table, and a glossary. Also supports extending existing docs in place.
+
+**Invoke:** `/aigent-skills:docit`
+**Trigger phrases:** "document this codebase", "create architecture docs", "explain this project", "generate HTML docs", "write onboarding documentation", "document this for a junior", "create a getting started guide", "explain the architecture", "create deep-dive documentation", "review this codebase", "help new engineers understand this"
 
 ## Installation
 
@@ -129,6 +137,9 @@ skills/
   repo-to-html/
     SKILL.md            # HTML deep-dive documentation generator
     references/         # Presentation and readability guidelines
+  docit/
+    SKILL.md            # Combined HTML architecture documentation generator
+    references/         # Presentation guidelines and exploration procedure
 docs/                   # Specs and plans
 Makefile                # Build and setup automation
 .pre-commit-config.yaml # Pre-commit hook configuration
